@@ -1,0 +1,48 @@
+.display_user{
+    height: 40vh;
+    overflow-y: scroll;
+}
+.user_div {
+    border: 1px solid black;
+    /* border-collapse: collapse; */
+    width: 100%;
+} 
+
+.tablehead{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.user_div th , .user_div td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+.user_div th {
+    background-color: rgb(7, 196, 233);
+    color: white;
+}
+.user_div tr:nth-child(even) {
+    background-color: #1be9f4;
+}
+
+.user_div tr:hover {
+    background-color: #f2e41b;
+}
+.edit_button {
+    background-color: rgb(7, 196, 233);
+    color:  white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    width: 70px;
+}
+.delete_button{
+    background-color: rgb(255, 0, 0);
+    color:  white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    width: 70px;
+
+}

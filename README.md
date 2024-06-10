@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
+# Step 1:  to run project 
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Step 2:  install rtk package
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+npm i @reduxjs/toolkit react-redux
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# Step 3: create  redux folder
+# Step 4: create store.js in redux folder
 
-## Learn More
+store.js
 
-To learn more about Next.js, take a look at the following resources:
+const { configureStore } = require("@reduxjs/toolkit");
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+export const store= configureStore({
+    reducer : {}
+});
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+# Step 5: create Provider and import in into layout.js
+1. create provider file 
+2. import store into provider and
+3. import provider into layout.js
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+provider.js 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+"use client";
+import { store } from './store';
+const {Provider} = require('react-redux');
+
+export function Providers({children}){
+    return <Provider store={store}>{children}</Provider>
+}
+
+# Step 6: create two component addUser and dispalyUser in app/component folder
+# Step 7: What is slice 
+A slice is a collection of Redux reducer logic and actions for a signle feature in your app
+Example
+
+action and reducer commanly called as slice but action and reducer must be of same feture 
+like action if user authentication and reducer also of user authentication
+
+
+In slice we defined action and reducer in single file
+action is the data which we store in redux
+reducer help us to store that data into redux
+
+
