@@ -1,7 +1,7 @@
 
 "use client";
 import React, { useState } from 'react'
-import {addUser} from '../redux/slice';
+import {addUser} from '../redux/userSlice';
 import { useDispatch } from 'react-redux';
 import Link from 'next/link';
 

@@ -4,14 +4,13 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import styles from './displayuser.module.css';
 import { useDispatch } from 'react-redux';
-import { removeUser } from '../redux/slice';
+import { removeUser } from '../redux/userSlice';
 
 export default function DisplayUsers() {
 
   const {users} = useSelector((state) => state.usersData);
   const dispatch = useDispatch();
 
-  console.log(users,"userData")
 
   const handleDelete = (id) => {
     dispatch(removeUser({id:id}))

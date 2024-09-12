@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import { useDispatch,useSelector } from "react-redux";
-import { fetchApiUser } from "../redux/slice";
+import { fetchApiUser } from "../redux/userSlice";
 
 export default function APIUser() {
   const dispatch = useDispatch();

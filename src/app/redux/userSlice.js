@@ -10,7 +10,25 @@ export const fetchApiUser = createAsyncThunk("fetchApiUsers",async () =>{
     const result = await fetch("https://jsonplaceholder.typicode.com/users")
     return result.json();
 })
-const Slice = createSlice({
+
+export const createUser = createAsyncThunk("users/createUser", async (user) => {
+    const response = await fetch("https://jsonplaceholder.typicode.com/users", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+    });
+
+    if (!response.ok) {
+        throw new Error("Failed to create user");
+    }
+
+    return response.json();
+});
+
+
+const userSlice = createSlice({
     name : 'addUserSlice',
     initialState,
     reducers : {
@@ -30,8 +48,11 @@ const Slice = createSlice({
             state.isLoading = false,
             state.userAPIData= action.payload
         })
+        builder.addCase(createUser.fulfilled, (state, action) => {
+            state.users.push(action.payload);
+        });
     }
 });
 
-export const {addUser,removeUser} = Slice.actions
-export default Slice.reducer
+export const {addUser,removeUser} = userSlice.actions
+export default userSlice.reducer
